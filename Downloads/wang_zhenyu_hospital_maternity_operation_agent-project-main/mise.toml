@@ -1,0 +1,75 @@
+# See claude code environment variables documents at https://code.claude.com/docs/en/settings
+[env]
+
+[tools]
+python = "3.12"
+claude = "latest"
+uv = "latest"
+node = "24"
+"npm:pnpm" = "10.33.3"
+
+# === Tasks
+[tasks.venv-create]
+description = "✨ Create Python virtual environment (.venv)"
+run = "uv venv"
+
+[tasks.venv-remove]
+description = "💥 Remove Python virtual environment folder (.venv)"
+run = "rm -r .venv"
+
+[tasks.inst-python-deps]
+description = "💾 Install Python dependencies via uv"
+run = "uv sync --all-extras"
+
+[tasks.inst-node-deps]
+description = "📦 Install Node.js dependencies via pnpm"
+run = "pnpm install"
+
+[tasks.inst]
+description = "💾 Install all dependencies (Python + Node.js)"
+depends = ["inst-python-deps", "inst-node-deps"]
+
+[tasks.download-db]
+description = "📥 Download SQLite database file from GitHub Release"
+run = ".venv/bin/python scripts/test_download_sqlite_file.py"
+
+[tasks.export]
+description = "💾 Export Core Python dependencies to requirements.txt via uv"
+run = "uv export --format requirements-txt --no-dev --no-emit-project --no-hashes --no-annotate --no-emit-package pywin32 --no-emit-package colorama --no-emit-package tzdata | sed 's/ ; platform_machine ==.*or.*//' > requirements.txt"
+
+[tasks.test-python]
+description = "🧪 Run Python tests with pytest"
+run = ".venv/bin/pytest tests_python"
+
+[tasks.test-node]
+description = "🧪 Run Node.js tests"
+run = "node --test tests_node/*.test.js"
+
+[tasks.test]
+description = "🧪 Run all tests (Python + Node.js)"
+depends = ["test-python", "test-node"]
+
+[tasks.cov-python]
+description = "🧪 Run Python code coverage tests with pytest"
+run = ".venv/bin/pytest tests_python -s --tb=native --cov=labor_ward_ai --cov-report term-missing --cov-report html:htmlcov"
+
+[tasks.cov]
+description = "🧪 Run all code coverage tests (Python + Node.js)"
+depends = ["cov-python"]
+
+[tasks.next-dev]
+description = "🌐 Start Next.js development server"
+run = "next dev"
+
+[tasks.fastapi-dev]
+description = "⚙️ Start FastAPI development server"
+run = "uv run -- python -m uvicorn api.index:app --reload --host 127.0.0.1 --port 8000"
+
+[tasks.dev]
+description = "🚀 Start all development servers (Next.js + FastAPI)"
+depends = ["kill"]
+run = "pnpm exec concurrently 'mise run next-dev' 'mise run fastapi-dev'"
+
+[tasks.kill]
+description = "🛑 Kill all development servers (Next.js + FastAPI)"
+run = "uv run -- python kill-dev-servers.py"

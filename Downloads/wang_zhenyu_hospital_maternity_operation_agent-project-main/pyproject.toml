@@ -1,0 +1,47 @@
+[project]
+name = "labor_ward_ai"
+version = "0.1.1"
+requires-python = ">=3.12,<4.0"
+
+# Core Dependencies
+dependencies = [
+    "func-args>=1.0.1,<2.0.0",      # inspect function/method arguments
+    "pydantic>=2.11.10,<3.0.0",     # Data validation and settings management using Python type annotations
+    "fastapi>=0.118.0,<1.0.0",      # Web framework
+    "uvicorn>=0.38.0,<1.0.0",       # ASGI server
+    "boto3>=1.42.0,<2.0.0",         # AWS SDK for Python
+    "boto3-dataclass[bedrock-runtime]>=1.40.0,<2.0.0", # Transform boto3 dictionaries into type-safe dataclasses with full autocomplete support.
+    "boto-session-manager>=1.8.1,<2.0.0",
+    "pynamodb>=6.1.0,<7.0.0",       # DynamoDB SDK
+    "pynamodb-session-manager>=0.1.2,<1.0.0",
+#    "google-genai>=1.0.0,<2.0.0",   # Google Gemini SDK
+#    "zhipuai>=2.0.0,<3.0.0",        # Zhipu GLM SDK
+    "vercel-ai-sdk-mate>=5.0.1,<6.0.0", # Vercel AI SDK Python adaptor library
+    "rich>=14.0.0,<15.0.0",         # Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal
+    "enum_mate>=0.1.1,<1.0.0",      # A Python library for enhanced Enum capabilities, including auto-generation of values and improved string representations.
+    "psycopg2-binary>=2.9.1,<3.0.0",# PostgreSQL database adapter for Python
+    "SQLAlchemy>=2.0.37,<3.0.0",    # SQL toolkit and Object-Relational Mapping (ORM) library for Python
+    "tabulate>=0.9.0,<1.0.0",       # Pretty-print tabular data in Python
+    "strands-agents>=1.26.0,<2.0.0",        # Strands Agents is a framework for building AI agents that can perform complex tasks by leveraging various tools and APIs. It provides a structured way to define agent behavior, manage tool usage, and handle interactions with external systems.
+    "strands-agents-tools>=0.2.20,<1.0.0",  # Strands Agents Tools is a collection of utilities and integrations designed to enhance the functionality of Strands Agents. It includes pre-built tools for common tasks, such as web scraping, database interactions, and API calls, allowing developers to easily incorporate these capabilities into their agents without having to build them from scratch.
+    "fire>=0.6.0,<1.0.0",           # Python library for creating command line interfaces (CLIs) from absolutely any Python object
+    "python-dotenv>=1.2.1,<2.0.0",  # Read key-value pairs from a .env file and set them as environment variables
+]
+
+[project.optional-dependencies]
+
+# (Unit/Coverage/Integration/Load) Test dependenceies
+test = [
+    "pytest>=8.2.2,<9.0.0", # Testing framework
+    "pytest-cov>=6.0.0,<7.0.0", # Coverage reporting
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["labor_ward_ai*"]
+exclude = [
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
