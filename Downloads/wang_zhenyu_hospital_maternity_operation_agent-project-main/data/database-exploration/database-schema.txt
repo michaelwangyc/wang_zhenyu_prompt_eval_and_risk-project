@@ -1,0 +1,113 @@
+sqlite Database smb_analytics_data(
+  Schema default(
+    Table patient(
+      patient_id:str*PK,
+      name:str*NN,
+      age:int*NN,
+      phone:str,
+      emergency_contact:str,
+      insurance_type:str,
+    )
+    Table provider(
+      provider_id:str*PK,
+      name:str*NN,
+      role:str*NN,
+      department:str,
+      is_active:bool*NN,
+    )
+    Table room(
+      room_id:str*PK,
+      room_number:str*NN,
+      room_type:str*NN,
+      floor:int*NN,
+    )
+    Table ob_profile(
+      ob_id:str*PK,
+      patient_id:str*NN*FK->patient.patient_id,
+      gravida:int*NN,
+      para:int*NN,
+      gestational_weeks:float*NN,
+      edd:date*NN,
+      fetus_count:int*NN,
+      prior_delivery_method:str,
+      planned_delivery_method:str*NN,
+      risk_level:str*NN,
+      complications:str,
+      gbs_status:str,
+      notes:str,
+    )
+    Table shift(
+      shift_id:str*PK,
+      provider_id:str*NN*FK->provider.provider_id,
+      shift_date:date*NN,
+      shift_type:str*NN,
+      assigned_room_ids:str,
+    )
+    Table admission(
+      admission_id:str*PK,
+      patient_id:str*NN*FK->patient.patient_id,
+      ob_id:str*NN*FK->ob_profile.ob_id,
+      admit_time:dt*NN,
+      status:str*NN,
+      delivery_method_actual:str,
+      delivery_time:dt,
+      predicted_los_hours:int,
+      predicted_discharge_time:dt,
+      actual_discharge_time:dt,
+      current_bed_id:str,
+      attending_provider_id:str*FK->provider.provider_id,
+      primary_nurse_id:str*FK->provider.provider_id,
+    )
+    Table alert(
+      alert_id:str*PK,
+      admission_id:str*NN*FK->admission.admission_id,
+      alert_type:str*NN,
+      severity:str*NN,
+      message:str*NN,
+      triggered_at:dt*NN,
+      acknowledged:bool*NN,
+      acknowledged_by:str*FK->provider.provider_id,
+    )
+    Table bed(
+      bed_id:str*PK,
+      room_id:str*NN*FK->room.room_id,
+      bed_label:str*NN,
+      status:str*NN,
+      current_admission_id:str*FK->admission.admission_id,
+    )
+    Table labor_progress(
+      progress_id:str*PK,
+      admission_id:str*NN*FK->admission.admission_id,
+      recorded_at:dt*NN,
+      cervical_dilation_cm:float*NN,
+      effacement_pct:int,
+      station:int,
+      contraction_freq:int,
+      membrane_status:str*NN,
+      notes:str,
+    )
+    Table medical_order(
+      order_id:str*PK,
+      admission_id:str*NN*FK->admission.admission_id,
+      order_type:str*NN,
+      status:str*NN,
+      scheduled_time:dt*NN,
+      assigned_provider_id:str*NN*FK->provider.provider_id,
+      assigned_room_id:str*FK->room.room_id,
+      priority:str*NN,
+      notes:str,
+      created_by:str*NN,
+    )
+    Table vital_sign(
+      vital_id:str*PK,
+      admission_id:str*NN*FK->admission.admission_id,
+      recorded_at:dt*NN,
+      bp_systolic:int*NN,
+      bp_diastolic:int*NN,
+      heart_rate:int*NN,
+      temperature:float*NN,
+      fetal_heart_rate:int*NN,
+      oxygen_saturation:float*NN,
+    )
+  )
+)
