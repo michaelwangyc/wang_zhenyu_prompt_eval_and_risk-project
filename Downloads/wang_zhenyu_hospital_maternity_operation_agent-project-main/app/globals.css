@@ -1,0 +1,434 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Font Variables - Theme Hospital */
+  --font-fredoka: "Fredoka", sans-serif;
+  --font-nunito: "Nunito", sans-serif;
+  --font-vt323: "VT323", monospace;
+
+  /* Theme Hospital Color System */
+  --background: #FDF6EC;
+  --foreground: #1D3557;
+  --surface: #E8F5F0;
+
+  /* Hospital Teal - Primary Brand */
+  --hospital-teal: #2A9D8F;
+  --hospital-teal-light: #5CC0B5;
+  --hospital-teal-dark: #1E7A6E;
+  --hospital-teal-pale: #D4F0EB;
+
+  /* Red Cross Accent */
+  --cross-red: #E63946;
+  --cross-red-light: #F07078;
+  --cross-red-dark: #C62B38;
+
+  /* Clipboard / UI Brown */
+  --clipboard-brown: #8B6914;
+  --clipboard-tan: #D4A843;
+
+  /* Linoleum Floor */
+  --floor-cream: #FDF6EC;
+  --floor-cream-deep: #F5E6CC;
+  --floor-tile: #FAF0DE;
+
+  /* Scrubs Navy */
+  --scrubs-navy: #1D3557;
+  --scrubs-navy-light: #2B4A7A;
+
+  /* Pill Orange */
+  --pill-orange: #F4A261;
+
+  /* Card */
+  --card: 0 0% 100%;
+  --card-foreground: 213 49% 23%;
+
+  /* Popover */
+  --popover: 0 0% 100%;
+  --popover-foreground: 213 49% 23%;
+
+  /* Primary (Teal) */
+  --primary: 174 58% 39%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary */
+  --secondary: 160 40% 93%;
+  --secondary-foreground: 213 49% 23%;
+
+  /* Muted */
+  --muted: 38 60% 94%;
+  --muted-foreground: 213 20% 45%;
+
+  /* Accent (Orange) */
+  --accent: 29 87% 67%;
+  --accent-foreground: 213 49% 23%;
+
+  /* Destructive (Cross Red) */
+  --destructive: 355 75% 56%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Border & Input */
+  --border: 174 30% 82%;
+  --input: 174 30% 82%;
+  --ring: 174 58% 39%;
+
+  /* Chart Colors - Medical Dashboard */
+  --chart-1: 174 58% 39%;   /* Teal */
+  --chart-2: 142 76% 36%;   /* Recovery Green */
+  --chart-3: 29 87% 67%;    /* Alert Orange */
+  --chart-4: 355 75% 56%;   /* Critical Red */
+  --chart-5: 262 60% 50%;   /* Purple */
+
+  /* Radius - slightly rounder for playful feel */
+  --radius: 14px;
+
+  /* Sidebar */
+  --sidebar-background: 213 49% 23%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 174 58% 39%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 213 40% 30%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 213 40% 30%;
+  --sidebar-ring: 174 58% 39%;
+}
+
+.dark {
+  --background: #0F2027;
+  --foreground: #E8F5F0;
+  --surface: #1A3A3A;
+
+  /* Card */
+  --card: 195 45% 11%;
+  --card-foreground: 160 40% 95%;
+
+  /* Popover */
+  --popover: 195 45% 11%;
+  --popover-foreground: 160 40% 95%;
+
+  /* Primary (Teal) */
+  --primary: 174 58% 50%;
+  --primary-foreground: 195 45% 11%;
+
+  /* Secondary */
+  --secondary: 195 30% 20%;
+  --secondary-foreground: 160 40% 95%;
+
+  /* Muted */
+  --muted: 195 30% 18%;
+  --muted-foreground: 174 20% 60%;
+
+  /* Accent */
+  --accent: 29 87% 67%;
+  --accent-foreground: 195 45% 11%;
+
+  /* Destructive */
+  --destructive: 355 60% 48%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Border & Input */
+  --border: 195 30% 25%;
+  --input: 195 30% 20%;
+  --ring: 174 58% 50%;
+
+  /* Sidebar */
+  --sidebar-background: 195 45% 8%;
+  --sidebar-foreground: 160 40% 95%;
+  --sidebar-primary: 174 58% 50%;
+  --sidebar-primary-foreground: 195 45% 8%;
+  --sidebar-accent: 195 30% 15%;
+  --sidebar-accent-foreground: 160 40% 95%;
+  --sidebar-border: 195 30% 20%;
+  --sidebar-ring: 174 58% 50%;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: var(--font-nunito), sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-fredoka), sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Hospital Ward Card */
+  .ward-card {
+    @apply rounded-2xl p-6;
+    background: #FFFFFF;
+    border: 3px solid var(--hospital-teal);
+    box-shadow:
+      4px 4px 0 var(--hospital-teal-dark),
+      inset 0 1px 0 rgba(255,255,255,0.8);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .ward-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+      6px 6px 0 var(--hospital-teal-dark),
+      inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+
+  /* Clipboard Card - with clip tab */
+  .clipboard-card {
+    @apply relative rounded-xl p-6;
+    background: #FFFCF5;
+    border: 2px solid var(--clipboard-tan);
+    box-shadow: 3px 3px 0 rgba(139, 105, 20, 0.3);
+  }
+  .clipboard-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 16px;
+    background: var(--clipboard-brown);
+    border-radius: 4px 4px 0 0;
+    border: 2px solid var(--clipboard-brown);
+  }
+
+  /* Pixel Button */
+  .pixel-btn {
+    font-family: var(--font-fredoka), sans-serif;
+    @apply font-semibold px-6 py-3 rounded-xl;
+    border: 3px solid;
+    box-shadow: 4px 4px 0;
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+  }
+  .pixel-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0;
+  }
+  .pixel-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0;
+  }
+
+  .pixel-btn-teal {
+    @apply pixel-btn;
+    background: var(--hospital-teal);
+    color: white;
+    border-color: var(--hospital-teal-dark);
+    box-shadow: 4px 4px 0 var(--hospital-teal-dark);
+  }
+  .pixel-btn-teal:hover {
+    box-shadow: 6px 6px 0 var(--hospital-teal-dark);
+  }
+  .pixel-btn-teal:active {
+    box-shadow: 0 0 0 var(--hospital-teal-dark);
+  }
+
+  .pixel-btn-red {
+    @apply pixel-btn;
+    background: var(--cross-red);
+    color: white;
+    border-color: var(--cross-red-dark);
+    box-shadow: 4px 4px 0 var(--cross-red-dark);
+  }
+  .pixel-btn-red:hover {
+    box-shadow: 6px 6px 0 var(--cross-red-dark);
+  }
+  .pixel-btn-red:active {
+    box-shadow: 0 0 0 var(--cross-red-dark);
+  }
+
+  /* Status Badge */
+  .status-badge {
+    font-family: var(--font-vt323), monospace;
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm;
+    border: 2px solid;
+  }
+
+  /* Status indicators */
+  .status-success {
+    @apply text-emerald-700;
+  }
+
+  .status-warning {
+    @apply text-amber-600;
+  }
+
+  .status-danger {
+    @apply text-red-600;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* === Hospital Linoleum Floor texture === */
+  .bg-hospital-floor {
+    background-color: var(--floor-cream);
+    background-image:
+      /* Faint tile grid */
+      linear-gradient(
+        to right,
+        rgba(42, 157, 143, 0.06) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(42, 157, 143, 0.06) 1px,
+        transparent 1px
+      ),
+      /* Subtle noise texture */
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.61  0 0 0 0 0.55  0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 64px 64px, 64px 64px, 200px 200px;
+    background-attachment: fixed, fixed, fixed;
+  }
+  .dark .bg-hospital-floor {
+    background-color: #0F2027;
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(42, 157, 143, 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(42, 157, 143, 0.08) 1px,
+        transparent 1px
+      ),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.88  0 0 0 0 0.96  0 0 0 0 0.94  0 0 0 0.03 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 64px 64px, 64px 64px, 200px 200px;
+  }
+
+  /* Keep bg-paper-ledger as alias for compatibility */
+  .bg-paper-ledger {
+    background-color: var(--floor-cream);
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(42, 157, 143, 0.06) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(42, 157, 143, 0.06) 1px,
+        transparent 1px
+      ),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.61  0 0 0 0 0.55  0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 64px 64px, 64px 64px, 200px 200px;
+    background-attachment: fixed, fixed, fixed;
+  }
+  .dark .bg-paper-ledger {
+    background-color: #0F2027;
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(42, 157, 143, 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(42, 157, 143, 0.08) 1px,
+        transparent 1px
+      ),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.88  0 0 0 0 0.96  0 0 0 0 0.94  0 0 0 0.03 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 64px 64px, 64px 64px, 200px 200px;
+  }
+
+  /* Stamped effect - hospital version */
+  .stamped {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(29, 53, 87, 0.05),
+      0 2px 4px rgba(29, 53, 87, 0.08);
+  }
+  .stamped:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.7),
+      inset 0 -1px 0 rgba(29, 53, 87, 0.06),
+      0 3px 8px rgba(29, 53, 87, 0.12);
+  }
+  .dark .stamped {
+    box-shadow:
+      inset 0 1px 0 rgba(232, 245, 240, 0.06),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .dark .stamped:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(232, 245, 240, 0.08),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+      0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Pixel text utility */
+  .font-pixel {
+    font-family: var(--font-vt323), monospace;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Custom scrollbar - Hospital Teal */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--floor-cream-deep);
+  border-left: 2px solid var(--hospital-teal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hospital-teal);
+  border-radius: 6px;
+  border: 2px solid var(--floor-cream-deep);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hospital-teal-dark);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0F2027;
+  border-left: 2px solid rgba(42, 157, 143, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--hospital-teal);
+  border: 2px solid #0F2027;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--hospital-teal-light);
+}
+
+/* Pixel-art red cross keyframe for loading states */
+@keyframes pulse-cross {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-pulse-cross {
+  animation: pulse-cross 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 1s ease-in-out infinite;
+}
