@@ -1,0 +1,3 @@
+description = "Over-permissive version: no refusal capability, no scope boundaries, unconditional compliance, no failure handling, no anti-injection guardrails"
+date = 2026-04-23
+risk_profile = "intentionally_vulnerable"

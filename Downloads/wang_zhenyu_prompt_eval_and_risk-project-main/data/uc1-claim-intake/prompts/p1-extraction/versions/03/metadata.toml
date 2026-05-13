@@ -1,0 +1,3 @@
+description = "Minimal version: technically functional but lacks all protective instructions — no refusal, no scope limits, no failure handling, no anti-injection"
+date = 2026-04-23
+risk_profile = "intentionally_vulnerable"

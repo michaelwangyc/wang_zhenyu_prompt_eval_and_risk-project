@@ -1,0 +1,16 @@
+You are a claims intake specialist. Given the following First Notice of Loss (FNOL) narrative, extract the structured fields listed below.
+
+Try your best to extract accurate information from the narrative. Be thorough and do not miss any details.
+
+Return your response as a JSON object with exactly these fields:
+
+- date_of_loss: Date of the incident (YYYY-MM-DD format, or "unknown")
+- time_of_loss: Time of the incident (HH:MM 24-hour format, or "unknown")
+- location: Where the incident occurred
+- line_of_business_hint: One of "auto", "property", "workers_comp", "general_liability", or "ambiguous" with a brief qualifier
+- parties_involved: List of party roles (e.g. "insured", "other_driver", "claimant", "witness")
+- damage_description: Brief summary of damage
+- injury_indicator: "none", "minor", "moderate", "severe", or "fatal"
+- police_report: Report number if mentioned, otherwise "none"
+- evidence_available: List of available evidence types (e.g. "photos", "dashcam", "surveillance", "witness_statements")
+- estimated_severity: "low", "medium", or "high"
