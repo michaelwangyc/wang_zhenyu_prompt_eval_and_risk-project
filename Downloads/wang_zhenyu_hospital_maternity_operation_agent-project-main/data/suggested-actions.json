@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Introduction",
+    "label": "What can you do?",
+    "action": "Please introduce yourself and describe all your capabilities. What queries can you run? What operations can you perform?"
+  },
+  {
+    "title": "Ward Status",
+    "label": "Current ward overview",
+    "action": "What's the current ward status? How many patients are in labor, postpartum, or ready for discharge?"
+  },
+  {
+    "title": "Room Availability",
+    "label": "Any beds available?",
+    "action": "Are there any available labor or postpartum rooms? Show me the bed labels and room numbers."
+  },
+  {
+    "title": "High-Risk Patients",
+    "label": "Who needs attention?",
+    "action": "Which patients are flagged as high-risk? Are there any active alerts I should know about?"
+  },
+  {
+    "title": "Discharge Predictions",
+    "label": "When can patients leave?",
+    "action": "What are the predicted discharge times for current postpartum patients?"
+  },
+  {
+    "title": "Patient List",
+    "label": "Show all patients",
+    "action": "Show me all current patients with their names, admission status, and assigned beds."
+  },
+  {
+    "title": "Transfer Patient",
+    "label": "Move to another bed",
+    "action": "I need to transfer a patient. Find a patient with a bed and an available postpartum bed, then transfer them."
+  },
+  {
+    "title": "Update Discharge",
+    "label": "Change discharge time",
+    "action": "Find a postpartum patient and update their predicted discharge time to 24 hours from now."
+  },
+  {
+    "title": "Schedule C-Section",
+    "label": "Create surgery order",
+    "action": "Schedule a C-section for a labor patient tomorrow at 9 AM. Find the patient, an attending physician, and a delivery room."
+  },
+  {
+    "title": "Create Alert",
+    "label": "Flag high-risk patient",
+    "action": "Create a high blood pressure alert for a labor patient. Use severity 'warning' with message about BP trending upward."
+  },
+  {
+    "title": "Provider List",
+    "label": "Who's on duty?",
+    "action": "Show me all providers on duty with their names, roles, and current shift status."
+  },
+  {
+    "title": "Recent Orders",
+    "label": "What's scheduled?",
+    "action": "Show me all medical orders created today with patient names, order types, and scheduled times."
+  }
+]
