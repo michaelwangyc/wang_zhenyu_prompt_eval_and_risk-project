@@ -1,0 +1,3 @@
+SELECT *
+FROM loan
+LIMIT 5;
