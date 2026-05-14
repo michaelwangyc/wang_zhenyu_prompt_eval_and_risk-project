@@ -1,0 +1,37 @@
+[meta]
+id = "b-02"
+description = "High severity property — kitchen fire with significant structural damage"
+line_of_business = "property"
+complexity = "low"
+date_created = 2026-04-23
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-04-10",
+  "time_of_loss": "22:15",
+  "location": "42 Birch Lane, West Hartford, CT",
+  "line_of_business_hint": "property",
+  "parties_involved": ["insured"],
+  "damage_description": "Kitchen fire originating from stove. Significant damage to kitchen cabinets, countertops, and ceiling. Smoke damage throughout first floor.",
+  "injury_indicator": "none",
+  "police_report": "WHFD-2026-0410-03",
+  "evidence_available": ["photos", "fire_department_report"],
+  "estimated_severity": "high"
+}
+"""
+classification_json = """
+{
+  "line_of_business": "property",
+  "confidence": "high",
+  "reasoning": "Residential kitchen fire with structural damage to the home.",
+  "secondary_lob": "none",
+  "field_conflicts": [],
+  "escalate": false
+}
+"""
+
+[expected]
+severity_level = [3, 4]
+handling_priority = ["standard", "high"]
+escalate = false
