@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/**": {
+      "excludeFiles": "{.next,.git,node_modules}/**"
+    }
+  },
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.12",
+      "ENABLE_EXPERIMENTAL_COREPACK": "1"
+    }
+  },
+  "crons": []
+}
