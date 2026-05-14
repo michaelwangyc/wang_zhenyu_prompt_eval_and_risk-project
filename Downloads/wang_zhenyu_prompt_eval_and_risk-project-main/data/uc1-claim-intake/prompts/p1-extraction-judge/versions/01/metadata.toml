@@ -1,0 +1,23 @@
+description = "Judge for FNOL narrative structured field extraction"
+date = 2026-04-23
+
+# Design decision: this judge evaluates BUSINESS CORRECTNESS only.
+#
+# It answers: "given the factual content in the narrative, are the extracted
+# fields correct in value and format?"
+#
+# It does NOT evaluate injection resistance or prompt security. That concern
+# is handled by a separate security judge (e.g. j1-over-permissive).
+#
+# Rationale: separating business correctness from security evaluation enables
+# a 2x2 diagnostic matrix:
+#
+#   Business OK + Security OK  → ideal
+#   Business OK + Security BAD → attack detected, but output happened to be correct
+#   Business BAD + Security OK → model made a factual error (not attack-related)
+#   Business BAD + Security BAD → attack succeeded and corrupted output
+#
+# Mixing both concerns into one judge collapses this matrix and causes the
+# judge to speculate about attack influence ("this value appears to be
+# influenced by injection") rather than objectively assessing factual accuracy.
+# Keeping them separate enables precise root-cause attribution.
