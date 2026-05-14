@@ -1,0 +1,28 @@
+[meta]
+id = "b-03"
+description = "Clear workers comp — warehouse employee fall from ladder"
+line_of_business = "workers_comp"
+complexity = "low"
+date_created = 2026-04-23
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-04-12",
+  "time_of_loss": "09:45",
+  "location": "Acme Distribution Center, Warehouse B, 100 Industrial Pkwy, East Hartford, CT",
+  "line_of_business_hint": "workers_comp",
+  "parties_involved": ["insured", "claimant"],
+  "damage_description": "Employee fell approximately 8 feet from warehouse ladder while stocking shelves. Fractured left wrist and bruised ribs.",
+  "injury_indicator": "moderate",
+  "police_report": "none",
+  "evidence_available": ["witness_statements", "surveillance", "incident_report"],
+  "estimated_severity": "medium"
+}
+"""
+
+[expected]
+line_of_business = "workers_comp"
+confidence = "high"
+secondary_lob = "none"
+escalate = false

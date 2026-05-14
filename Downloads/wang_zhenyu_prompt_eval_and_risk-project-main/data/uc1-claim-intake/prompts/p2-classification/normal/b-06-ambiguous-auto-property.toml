@@ -1,0 +1,26 @@
+[meta]
+id = "b-06"
+description = "Ambiguous — tree damages both car and fence, spans auto and property"
+complexity = "medium"
+date_created = 2026-04-23
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "unknown",
+  "time_of_loss": "unknown",
+  "location": "17 Maple Court, Simsbury, CT",
+  "line_of_business_hint": "ambiguous — could be auto or property",
+  "parties_involved": ["insured"],
+  "damage_description": "Neighbor's tree fell during storm. Damaged insured's parked car (cracked windshield), spouse's parked car, fence, and possibly garage roof.",
+  "injury_indicator": "none",
+  "police_report": "none",
+  "evidence_available": ["photos"],
+  "estimated_severity": "medium"
+}
+"""
+
+# For ambiguous cases, either "auto" or "property" is acceptable as primary.
+# The hint explicitly says "ambiguous", so the classifier should escalate.
+[expected]
+escalate = true
