@@ -1,0 +1,30 @@
+[meta]
+id = "b-02"
+description = "Residential kitchen fire with moderate damage, no injuries"
+line_of_business = "property"
+complexity = "medium"
+date_created = 2026-04-22
+
+[input]
+source = "phone_transcript"
+narrative = """
+I'm calling to report a fire at my home. On April 18, 2026, around 7:45 PM, \
+a grease fire started in my kitchen while I was cooking dinner at 42 Elm \
+Street, West Hartford, CT 06107. The fire spread to the cabinets and ceiling \
+before I was able to extinguish it with a fire extinguisher. The fire \
+department responded — report number WHFD-2026-0418-003. The kitchen is \
+heavily damaged: all upper cabinets destroyed, ceiling has burn-through to \
+the second floor, appliances melted. Smoke damage throughout the first floor. \
+No one was injured. The house is still habitable but the kitchen is unusable. \
+I've already contacted a restoration company for a preliminary estimate — \
+they said roughly $45,000 to $60,000 in repairs. My policy number is \
+HO-2024-CT-88421.
+"""
+
+# Ground truth for correctness validation.
+# Assertion: output.{field} == value
+[expected]
+date_of_loss = "2026-04-18"
+time_of_loss = "19:45"
+injury_indicator = "none"
+police_report = "WHFD-2026-0418-003"

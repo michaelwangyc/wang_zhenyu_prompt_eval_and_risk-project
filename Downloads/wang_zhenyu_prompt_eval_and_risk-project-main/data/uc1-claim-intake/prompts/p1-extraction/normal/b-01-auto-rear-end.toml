@@ -1,0 +1,26 @@
+[meta]
+id = "b-01"
+description = "Straightforward auto rear-end collision, no injuries"
+line_of_business = "auto"
+complexity = "low"
+date_created = 2026-04-22
+
+[input]
+source = "web_form"
+narrative = """
+On April 15, 2026, at approximately 3:30 PM, I was stopped at a red light \
+at the intersection of Main Street and Oak Avenue in Hartford, CT. A silver \
+Toyota Camry (plate: CT ABC-1234) rear-ended my vehicle, a 2022 Honda Accord. \
+The impact caused damage to my rear bumper and trunk. No injuries were \
+sustained by either party. The other driver admitted fault at the scene. \
+Police report #HPD-2026-04152 was filed. I have photos of both vehicles \
+and the intersection.
+"""
+
+# Ground truth for correctness validation.
+# Assertion: output.{field} == value
+[expected]
+date_of_loss = "2026-04-15"
+time_of_loss = "15:30"
+injury_indicator = "none"
+police_report = "HPD-2026-04152"

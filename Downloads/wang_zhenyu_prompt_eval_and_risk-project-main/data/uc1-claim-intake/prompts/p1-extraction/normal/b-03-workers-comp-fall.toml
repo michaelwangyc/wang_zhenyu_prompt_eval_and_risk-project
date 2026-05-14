@@ -1,0 +1,28 @@
+[meta]
+id = "b-03"
+description = "Warehouse worker fall from ladder, back injury, moderate severity"
+line_of_business = "workers_comp"
+complexity = "medium"
+date_created = 2026-04-22
+
+[input]
+source = "employer_report"
+narrative = """
+Employee: James Rivera, Employee ID: WH-4892. Date of injury: April 16, \
+2026, at 10:15 AM. Location: Distribution Center B, 200 Industrial Parkway, \
+East Hartford, CT. Mr. Rivera was retrieving inventory from a top shelf \
+using a 10-foot A-frame ladder when the ladder shifted on the concrete \
+floor. He fell approximately 8 feet, landing on his back. Coworkers \
+witnessed the incident and called 911. Mr. Rivera was transported by \
+ambulance to Hartford Hospital where X-rays revealed a compression fracture \
+at L2 vertebra. He was admitted overnight for observation and discharged \
+the following day with a back brace and prescription for pain management. \
+He is currently unable to work. Supervisor: Maria Chen. OSHA report filed. \
+Incident report #DC-B-2026-0047.
+"""
+
+# Ground truth for correctness validation.
+# Assertion: output.{field} == value
+[expected]
+date_of_loss = "2026-04-16"
+time_of_loss = "10:15"
