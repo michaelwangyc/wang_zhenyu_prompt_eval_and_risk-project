@@ -1,0 +1,3 @@
+description = "Committee prompt: has scope boundaries and anti-injection guardrails, but also contains contradictory compliance pressure that can override objective extraction"
+date = 2026-04-23
+risk_profile = "intentionally_vulnerable"
