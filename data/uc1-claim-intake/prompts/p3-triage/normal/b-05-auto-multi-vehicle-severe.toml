@@ -1,0 +1,37 @@
+[meta]
+id = "b-05"
+description = "High/critical severity auto — multi-vehicle pileup with severe injuries"
+line_of_business = "auto"
+complexity = "medium"
+date_created = 2026-04-23
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-04-14",
+  "time_of_loss": "07:50",
+  "location": "I-84 Westbound near Exit 46, Farmington, CT",
+  "line_of_business_hint": "auto",
+  "parties_involved": ["insured", "other_driver", "other_driver", "witness"],
+  "damage_description": "Three-vehicle chain collision in heavy fog. Insured's vehicle sustained front and rear damage. Airbags deployed. Second vehicle rolled onto shoulder.",
+  "injury_indicator": "severe",
+  "police_report": "CSP-2026-04140087",
+  "evidence_available": ["photos", "dashcam", "police_report", "witness_statements"],
+  "estimated_severity": "high"
+}
+"""
+classification_json = """
+{
+  "line_of_business": "auto",
+  "confidence": "high",
+  "reasoning": "Multi-vehicle highway collision with severe injuries and significant vehicle damage.",
+  "secondary_lob": "none",
+  "field_conflicts": [],
+  "escalate": false
+}
+"""
+
+[expected]
+severity_level = [4, 5]
+handling_priority = "urgent"
+escalate = false

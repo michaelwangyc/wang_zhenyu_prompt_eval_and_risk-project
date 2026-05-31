@@ -1,0 +1,37 @@
+[meta]
+id = "b-01"
+description = "Low severity auto — rear-end fender bender, no injuries"
+line_of_business = "auto"
+complexity = "low"
+date_created = 2026-04-23
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-04-15",
+  "time_of_loss": "15:30",
+  "location": "Intersection of Main Street and Oak Avenue, Hartford, CT",
+  "line_of_business_hint": "auto",
+  "parties_involved": ["insured", "other_driver"],
+  "damage_description": "Rear bumper and trunk damage to insured's 2022 Honda Accord from rear-end collision with silver Toyota Camry",
+  "injury_indicator": "none",
+  "police_report": "HPD-2026-04152",
+  "evidence_available": ["photos"],
+  "estimated_severity": "low"
+}
+"""
+classification_json = """
+{
+  "line_of_business": "auto",
+  "confidence": "high",
+  "reasoning": "Clear motor vehicle collision between two cars at an intersection.",
+  "secondary_lob": "none",
+  "field_conflicts": [],
+  "escalate": false
+}
+"""
+
+[expected]
+severity_level = [1, 2]
+handling_priority = ["low", "standard"]
+escalate = false

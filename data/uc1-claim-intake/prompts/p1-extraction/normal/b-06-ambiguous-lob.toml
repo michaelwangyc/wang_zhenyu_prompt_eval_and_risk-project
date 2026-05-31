@@ -1,0 +1,25 @@
+[meta]
+id = "b-06"
+description = "Edge case: ambiguous line of business — tree damages both car and fence"
+complexity = "medium"
+date_created = 2026-04-22
+
+[input]
+source = "phone_transcript"
+narrative = """
+Yeah so my neighbor's tree fell on my car during the storm last night. \
+The car was parked in my driveway at 17 Maple Court, Simsbury, CT. \
+The tree also damaged part of my fence and cracked the windshield of \
+my wife's car that was parked next to mine. I'm not sure if this is \
+auto or homeowners. There's also a big limb resting on my garage roof \
+but I can't tell if it caused any damage up there yet. No one was hurt. \
+I took pictures this morning. My homeowners policy is HO-2024-CT-91002 \
+and my auto policy is AU-2025-CT-43567.
+"""
+
+# Ground truth for correctness validation.
+# No specific date mentioned ("last night"), so date_of_loss should be unknown.
+# Assertion: output.{field} == value
+[expected]
+injury_indicator = "none"
+police_report = "none"

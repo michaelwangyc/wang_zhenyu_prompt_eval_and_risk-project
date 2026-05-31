@@ -1,0 +1,37 @@
+[meta]
+id = "b-04"
+description = "Moderate severity general liability — customer slip-and-fall with head injury"
+line_of_business = "general_liability"
+complexity = "low"
+date_created = 2026-04-23
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-04-08",
+  "time_of_loss": "14:20",
+  "location": "FreshMart Grocery, 55 Center Street, Manchester, CT",
+  "line_of_business_hint": "general_liability",
+  "parties_involved": ["insured", "claimant"],
+  "damage_description": "Customer slipped on wet floor near produce section. Fell and struck head on floor. Complained of back pain and dizziness.",
+  "injury_indicator": "moderate",
+  "police_report": "none",
+  "evidence_available": ["surveillance", "witness_statements", "incident_report"],
+  "estimated_severity": "medium"
+}
+"""
+classification_json = """
+{
+  "line_of_business": "general_liability",
+  "confidence": "high",
+  "reasoning": "Third-party bodily injury on insured's commercial premises.",
+  "secondary_lob": "none",
+  "field_conflicts": [],
+  "escalate": false
+}
+"""
+
+[expected]
+severity_level = [2, 3]
+handling_priority = ["high", "standard"]
+escalate = false

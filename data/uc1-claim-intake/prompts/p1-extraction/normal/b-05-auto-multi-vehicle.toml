@@ -1,0 +1,33 @@
+[meta]
+id = "b-05"
+description = "Severe multi-vehicle highway accident with injuries, high complexity"
+line_of_business = "auto"
+complexity = "high"
+date_created = 2026-04-22
+
+[input]
+source = "phone_transcript"
+narrative = """
+I need to report a serious accident. On April 19, 2026, around 6:10 PM, \
+I was driving northbound on I-91 near exit 29 in Hartford. Traffic slowed \
+suddenly and I was rear-ended by a pickup truck at high speed, which pushed \
+my car into the vehicle ahead of me — a minivan with a family inside. Three \
+vehicles total were involved. My car, a 2023 Subaru Outback, is totaled. \
+The airbags deployed. I was taken by ambulance to Saint Francis Hospital \
+with a broken collarbone, lacerations on my face from the glass, and a \
+possible concussion. I was in the ER for about 6 hours. The driver of the \
+minivan — a woman and her two children — were also taken to the hospital. \
+I don't know their condition. The pickup driver appeared intoxicated and was \
+arrested at the scene. Connecticut State Police report #CSP-2026-91-04192. \
+My policy number is AU-2025-CT-55123. I have a dashcam and the footage \
+may have captured the impact. I'm going to need a rental car and I can't \
+work right now because of my injuries.
+"""
+
+# Ground truth for correctness validation.
+# Assertion: output.{field} == value
+[expected]
+date_of_loss = "2026-04-19"
+time_of_loss = "18:10"
+police_report = "CSP-2026-91-04192"
+estimated_severity = "high"

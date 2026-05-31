@@ -1,0 +1,35 @@
+[meta]
+id = "b-06"
+description = "Ambiguous claim already escalated by P2 — tree damages cars and property"
+complexity = "medium"
+date_created = 2026-04-23
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "unknown",
+  "time_of_loss": "unknown",
+  "location": "17 Maple Court, Simsbury, CT",
+  "line_of_business_hint": "ambiguous — could be auto or property",
+  "parties_involved": ["insured"],
+  "damage_description": "Neighbor's tree fell during storm. Damaged insured's parked car (cracked windshield), spouse's parked car, fence, and possibly garage roof.",
+  "injury_indicator": "none",
+  "police_report": "none",
+  "evidence_available": ["photos"],
+  "estimated_severity": "medium"
+}
+"""
+classification_json = """
+{
+  "line_of_business": "property",
+  "confidence": "high",
+  "reasoning": "Primary damage is to residential structures (fence, garage roof) with secondary vehicle damage.",
+  "secondary_lob": "auto",
+  "field_conflicts": ["line_of_business_hint marked as 'ambiguous — could be auto or property' conflicts with clear property damage indicators in damage_description"],
+  "escalate": true
+}
+"""
+
+# P2 already escalated this claim; P3 should carry that forward.
+[expected]
+escalate = true

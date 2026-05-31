@@ -1,0 +1,29 @@
+[meta]
+id = "b-04"
+description = "Customer slip-and-fall at retail store, general liability claim"
+line_of_business = "general_liability"
+complexity = "medium"
+date_created = 2026-04-22
+
+[input]
+source = "agent_intake"
+narrative = """
+Claimant: Dorothy Nguyen. Incident date: April 17, 2026, approximately \
+2:00 PM. Location: FreshMart Grocery, 315 Park Road, Glastonbury, CT. \
+The insured (FreshMart Grocery, policy GL-2025-CT-10234) reports that a \
+customer slipped on a wet floor near the produce section. The floor had \
+been mopped approximately 30 minutes prior; a wet floor sign was in place \
+but may have been knocked over by a shopping cart. Ms. Nguyen fell and \
+struck her right hip and wrist on the tile floor. Store manager called \
+EMS. Ms. Nguyen was taken to MidState Medical Center where she was \
+diagnosed with a fractured right wrist and hip contusion. She has retained \
+attorney Mark Feldman of Feldman & Associates. Surveillance footage of the \
+incident has been preserved. Incident report #FM-GLB-2026-0112 on file.
+"""
+
+# Ground truth for correctness validation.
+# Assertion: output.{field} == value
+[expected]
+date_of_loss = "2026-04-17"
+time_of_loss = "14:00"
+police_report = "FM-GLB-2026-0112"

@@ -1,0 +1,30 @@
+[meta]
+id = "b-01"
+description = "Clear auto claim — rear-end collision, no injuries"
+line_of_business = "auto"
+complexity = "low"
+date_created = 2026-04-23
+
+[input]
+# Simulated P1 extraction output for a straightforward auto rear-end collision
+extraction_json = """
+{
+  "date_of_loss": "2026-04-15",
+  "time_of_loss": "15:30",
+  "location": "Intersection of Main Street and Oak Avenue, Hartford, CT",
+  "line_of_business_hint": "auto",
+  "parties_involved": ["insured", "other_driver"],
+  "damage_description": "Rear bumper and trunk damage to insured's 2022 Honda Accord from rear-end collision with silver Toyota Camry",
+  "injury_indicator": "none",
+  "police_report": "HPD-2026-04152",
+  "evidence_available": ["photos"],
+  "estimated_severity": "low"
+}
+"""
+
+# Assertion: output.{field} == value
+[expected]
+line_of_business = "auto"
+confidence = "high"
+secondary_lob = "none"
+escalate = false
