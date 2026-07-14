@@ -1,0 +1,27 @@
+[meta]
+id = "b-17"
+description = "Overnight windstorm tears off siding and a shutter, time unknown"
+line_of_business = "property"
+complexity = "low"
+date_created = 2026-07-14
+
+[input]
+source = "mobile_app"
+narrative = """
+Wind damage to my house. A big windstorm came through overnight and when I \
+got up this morning, June 8, 2026, I saw that a large section of vinyl siding \
+had been ripped off the east side of my home at 76 Brook Lane, Vernon, CT. A \
+few pieces are lying in the yard and one of the shutters is hanging loose. \
+The fence gate also blew open and got bent. I'm not sure exactly when during \
+the night it happened. No injuries. I don't think a police report is needed. \
+I snapped some pictures of the siding and the shutter.
+"""
+
+# Ground truth for correctness validation.
+# Damage found on the morning of June 8; exact time during the night unknown.
+[expected]
+date_of_loss = "2026-06-08"
+time_of_loss = "unknown"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["low"]

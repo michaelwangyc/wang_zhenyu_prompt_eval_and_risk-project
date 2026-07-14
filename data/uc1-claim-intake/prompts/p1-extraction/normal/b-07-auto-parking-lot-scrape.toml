@@ -1,0 +1,28 @@
+[meta]
+id = "b-07"
+description = "Parking lot hit-and-run scrape on unattended vehicle, no injuries"
+line_of_business = "auto"
+complexity = "low"
+date_created = 2026-07-14
+
+[input]
+source = "mobile_app"
+narrative = """
+I'm reporting some damage that happened to my car in a parking lot. On \
+March 3, 2026, around 1:15 in the afternoon, I came back to my parked 2021 \
+Subaru Outback at the Westfield Mall lot in Stamford, CT and found a long \
+scrape and a dent running along the driver's side rear door. It looks like \
+someone backed into me and took off without leaving a note. There were no \
+injuries since I wasn't in the car at the time. I didn't call the police, \
+but I took photos of the damage and of the parking spot. I have no idea who \
+did it.
+"""
+
+# Ground truth for correctness validation.
+# Assertion: output.{field} == value (scalar); output.{field} in value (list)
+[expected]
+date_of_loss = "2026-03-03"
+time_of_loss = "13:15"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["low"]

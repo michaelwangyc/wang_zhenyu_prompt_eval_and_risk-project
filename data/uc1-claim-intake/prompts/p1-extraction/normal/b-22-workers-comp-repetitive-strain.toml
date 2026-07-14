@@ -1,0 +1,29 @@
+[meta]
+id = "b-22"
+description = "Gradual-onset carpal tunnel with no single date of injury"
+line_of_business = "workers_comp"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "email"
+narrative = """
+I would like to open a workers' compensation claim for a repetitive-strain \
+injury. I work as a data-entry clerk, and over the past several months I've \
+developed worsening pain, numbness, and tingling in both wrists and hands. \
+There was no single accident, the symptoms built up gradually from constant \
+typing, so I can't give an exact date of injury. It became bad enough that I \
+saw a doctor on June 15, 2026, who diagnosed bilateral carpal tunnel syndrome \
+and recommended I reduce my workload. My employer is aware and I've reported \
+it to HR. No police report applies. I have my doctor's diagnosis notes and \
+can provide my work timesheets.
+"""
+
+# Ground truth for correctness validation.
+# Cumulative injury with no discrete incident date/time -> both unknown.
+[expected]
+date_of_loss = "unknown"
+time_of_loss = "unknown"
+injury_indicator = ["minor", "moderate"]
+police_report = "none"
+estimated_severity = ["low", "medium"]

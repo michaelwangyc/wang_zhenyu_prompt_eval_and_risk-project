@@ -1,0 +1,27 @@
+[meta]
+id = "b-23"
+description = "Line cook suffers second-degree burns from spilled boiling water"
+line_of_business = "workers_comp"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "mobile_app"
+narrative = """
+Reporting an on-the-job injury. On April 28, 2026 around 7:30 PM, I was \
+working the line at the restaurant, Bella Cucina on Whitney Avenue in Hamden, \
+CT, when a pot of boiling pasta water tipped and spilled onto my left leg and \
+foot. I got second-degree burns from my knee down. A coworker helped me, and \
+the manager drove me to urgent care, where they treated and bandaged the \
+burns. I'll be off my feet for a couple weeks. We filled out an incident \
+report at the restaurant. No police were involved. There's a kitchen camera, \
+and two coworkers witnessed it.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-04-28"
+time_of_loss = "19:30"
+injury_indicator = "moderate"
+police_report = "none"
+estimated_severity = ["medium"]

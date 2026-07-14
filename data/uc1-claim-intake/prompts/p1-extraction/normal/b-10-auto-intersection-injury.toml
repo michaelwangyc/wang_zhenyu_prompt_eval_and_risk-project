@@ -1,0 +1,28 @@
+[meta]
+id = "b-10"
+description = "T-bone intersection collision with injuries and multiple witnesses"
+line_of_business = "auto"
+complexity = "high"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Okay so I was in a pretty bad crash. It happened on April 9th, 2026, around \
+5:50 in the evening, right at the intersection of Farmington Avenue and \
+Sisson in Hartford. I had a green light and was going through when a car ran \
+the red and T-boned my driver's side. My airbags went off. I've got a broken \
+left wrist and some bruised ribs, and the ambulance took me to Saint Francis. \
+My car, a 2019 Mazda 3, is probably totaled, the whole side is caved in. The \
+other driver seemed okay. Police responded and the report number is \
+HPD-2026-04091. There were two witnesses who stopped, and there's a traffic \
+camera at that intersection.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-04-09"
+time_of_loss = "17:50"
+injury_indicator = "moderate"
+police_report = "HPD-2026-04091"
+estimated_severity = ["high"]

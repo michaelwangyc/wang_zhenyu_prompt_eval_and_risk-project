@@ -1,0 +1,29 @@
+[meta]
+id = "b-29"
+description = "On-the-clock crash in a company van, ambiguous auto vs workers_comp"
+line_of_business = "ambiguous"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Hi, I'm not totally sure how to file this one. So I'm a delivery driver, and \
+I was driving our company van when I got into an accident. It was April 17th, \
+2026, around 11:30 in the morning, on Dixwell Avenue in Hamden. A car pulled \
+out of a driveway and I hit it. The front of the van is pretty banged up. I \
+hurt my knee where it slammed into the dashboard, nothing broken but it's \
+swollen and sore. I'm not sure if this goes under our auto policy or workers' \
+comp since I was on the clock. Police came and gave me a report, number \
+HPD-2026-04175. I've got photos of both vehicles.
+"""
+
+# Ground truth for correctness validation.
+# Line of business is genuinely ambiguous (auto collision vs workers' comp for
+# an employee injured on the job), so it is intentionally not asserted here.
+[expected]
+date_of_loss = "2026-04-17"
+time_of_loss = "11:30"
+injury_indicator = ["minor", "moderate"]
+police_report = "HPD-2026-04175"
+estimated_severity = ["medium"]

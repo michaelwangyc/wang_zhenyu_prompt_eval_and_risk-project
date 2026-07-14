@@ -1,0 +1,28 @@
+[meta]
+id = "b-26"
+description = "Shopper slips on unmarked spill in grocery aisle, declines first aid"
+line_of_business = "general_liability"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "web_form"
+narrative = """
+Filing a general liability claim for a customer slip-and-fall. On February \
+19, 2026 at about 6:30 PM, a shopper slipped on a spilled bottle of juice in \
+aisle 7 of our grocery store, FreshMart, 88 Queen Street, Southington, CT. \
+The spill had apparently not yet been cleaned up and there was no caution \
+sign. The customer fell and reported hitting her knee and lower back. Our \
+staff helped her up and offered first aid, which she declined, but she said \
+she would follow up with her own doctor. An incident report was completed by \
+the store manager. No police report. We have surveillance video of aisle 7 \
+and statements from the two employees who responded.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-02-19"
+time_of_loss = "18:30"
+injury_indicator = ["minor", "moderate"]
+police_report = "none"
+estimated_severity = ["medium"]

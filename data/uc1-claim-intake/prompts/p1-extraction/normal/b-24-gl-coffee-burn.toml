@@ -1,0 +1,28 @@
+[meta]
+id = "b-24"
+description = "Customer burned by spilled coffee from unsecured lid at coffee shop"
+line_of_business = "general_liability"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "email"
+narrative = """
+I am submitting a liability claim regarding a customer injury at our coffee \
+shop, The Daily Grind, 14 Bank Street, New Milford, CT. On March 15, 2026 at \
+approximately 8:05 AM, a barista handed a customer a to-go cup of coffee \
+whose lid was not fully secured. As the customer picked it up, the lid popped \
+off and hot coffee spilled onto her hand and lap. She reported burns to her \
+hand and thigh and left to seek medical treatment. She has since contacted us \
+about the incident. We completed an internal incident report. No police \
+report was filed. We have security camera footage of the counter area and the \
+barista's written statement.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-03-15"
+time_of_loss = "08:05"
+injury_indicator = ["minor", "moderate"]
+police_report = "none"
+estimated_severity = ["medium", "high"]

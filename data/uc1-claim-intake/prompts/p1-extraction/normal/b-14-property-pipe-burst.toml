@@ -1,0 +1,28 @@
+[meta]
+id = "b-14"
+description = "Burst dishwasher supply line floods first floor and basement"
+line_of_business = "property"
+complexity = "high"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Hi, I need to report water damage in my house. So a pipe burst under the \
+kitchen sink, actually I think it's the supply line to the dishwasher. This \
+was Sunday, January 11th, 2026. I woke up around 6 in the morning and the \
+whole first floor was flooded, water everywhere, and it was coming down into \
+the basement too. The hardwood floors in the kitchen and dining room are \
+ruined, the cabinets are soaked, and part of the basement ceiling came down. \
+It's a big mess. Nobody got hurt, thankfully. I shut off the main and called \
+a plumber. My policy number is HO-2024-CT-55198. I've got tons of photos and \
+videos.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-01-11"
+time_of_loss = "06:00"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["medium", "high"]

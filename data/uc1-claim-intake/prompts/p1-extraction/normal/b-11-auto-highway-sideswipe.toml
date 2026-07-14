@@ -1,0 +1,28 @@
+[meta]
+id = "b-11"
+description = "Highway merge sideswipe by box truck, minor neck stiffness"
+line_of_business = "auto"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "email"
+narrative = """
+I am writing to report a collision that occurred on February 14, 2026 at \
+approximately 9:20 AM on Interstate 91 southbound near exit 29 in Meriden, \
+CT. As I was merging into the middle lane, a commercial box truck already in \
+that lane sideswiped the passenger side of my 2023 Toyota RAV4. The \
+passenger-side mirror was torn off and there are deep scratches and a dent \
+along both passenger doors. I experienced some minor neck stiffness \
+afterward but did not require medical attention. A state police trooper \
+responded to the scene and filed report CSP-2026-02-1429. I have exchanged \
+insurance information with the truck driver and have photographs of both \
+vehicles.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-02-14"
+time_of_loss = "09:20"
+injury_indicator = "minor"
+police_report = "CSP-2026-02-1429"

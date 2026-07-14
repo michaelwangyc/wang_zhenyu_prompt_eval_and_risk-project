@@ -1,0 +1,27 @@
+[meta]
+id = "b-28"
+description = "Landscaping mower throws rock and shatters a client's bay window"
+line_of_business = "general_liability"
+complexity = "low"
+date_created = 2026-07-14
+
+[input]
+source = "email"
+narrative = """
+I am reporting a property-damage liability claim. On January 28, 2026, around \
+10:00 AM, one of our landscaping crew members was operating a riding mower at \
+a client's residence, 45 Orchard Lane, Guilford, CT, when the mower threw a \
+rock that shattered a large bay window at the front of the house. No one was \
+injured. The client is understandably upset and has requested that we cover \
+the cost of replacing the window, which appears to be a custom size. We have \
+taken photographs of the broken window and the mower's position, and the crew \
+lead has provided a written account. No police report was filed.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-01-28"
+time_of_loss = "10:00"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["low", "medium"]
