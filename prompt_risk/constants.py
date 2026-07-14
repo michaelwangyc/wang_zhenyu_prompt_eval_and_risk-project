@@ -15,6 +15,10 @@ class UseCaseIdEnum(enum.StrEnum):
 class PromptIdEnum(enum.StrEnum):
     """Registry of prompt identifiers, formatted as ``{use_case_id}:{short_name}``."""
     JUDGE_J1_OVER_PERMISSIVE = f"{UseCaseIdEnum.JUDGE.value}:j1-over-permissive"
+    JUDGE_J2_SENSITIVE_DATA = f"{UseCaseIdEnum.JUDGE.value}:j2-sensitive-data"
+    JUDGE_J3_ROLE_CONFUSION = f"{UseCaseIdEnum.JUDGE.value}:j3-role-confusion"
+    JUDGE_J4_INSTRUCTION_CONFLICT = f"{UseCaseIdEnum.JUDGE.value}:j4-instruction-conflict"
+    JUDGE_J5_LOGIC_AMBIGUITY = f"{UseCaseIdEnum.JUDGE.value}:j5-logic-ambiguity"
     UC1_P1_EXTRACTION = f"{UseCaseIdEnum.UC1_CLAIM_INTAKE.value}:p1-extraction"
     UC1_P1_EXTRACTION_JUDGE = f"{UseCaseIdEnum.UC1_CLAIM_INTAKE.value}:p1-extraction-judge"
     UC1_P2_CLASSIFICATION = f"{UseCaseIdEnum.UC1_CLAIM_INTAKE.value}:p2-classification"

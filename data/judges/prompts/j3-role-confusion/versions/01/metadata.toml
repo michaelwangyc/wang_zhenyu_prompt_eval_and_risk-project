@@ -1,0 +1,3 @@
+description = "Evaluates a prompt for role confusion and persona hijacking risks"
+judge_category = "role_confusion"
+date = 2026-07-13

@@ -1,0 +1,3 @@
+description = "Evaluates a prompt for sensitive data exposure risks"
+judge_category = "sensitive_data"
+date = 2026-07-13
