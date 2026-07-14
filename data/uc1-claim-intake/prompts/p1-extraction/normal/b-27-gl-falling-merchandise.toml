@@ -1,0 +1,28 @@
+[meta]
+id = "b-27"
+description = "Falling paint cans injure a shopper at a home-improvement store"
+line_of_business = "general_liability"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Yeah so we had an incident at the store today, a customer got hurt. We're a \
+home-improvement retailer over on Boston Post Road in Orange. This was, uh, \
+May 30th, 2026, about 1 in the afternoon. A stack of paint cans on a high \
+shelf came down when a customer pulled one out, and a couple of the cans hit \
+him on the shoulder and head. He had a cut on his head that was bleeding a \
+bit and complained his shoulder hurt. We called the paramedics and they \
+checked him out and bandaged the cut. We did an incident report. I don't have \
+a police report number. There's overhead camera footage, and the customer \
+gave us his information.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-05-30"
+time_of_loss = "13:00"
+injury_indicator = ["minor", "moderate"]
+police_report = "none"
+estimated_severity = ["medium"]

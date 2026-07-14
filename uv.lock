@@ -202,6 +202,9 @@ bedrock = [
 bedrock-runtime = [
     { name = "mypy-boto3-bedrock-runtime" },
 ]
+s3 = [
+    { name = "mypy-boto3-s3" },
+]
 
 [[package]]
 name = "botocore"
@@ -1187,6 +1190,15 @@ wheels = [
 ]
 
 [[package]]
+name = "mypy-boto3-s3"
+version = "1.42.94"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6d/55/2268b22037d1c6814c2229904d43f9cb3fcd9b9e9d01a3402b58a10270ce/mypy_boto3_s3-1.42.94.tar.gz", hash = "sha256:1d92d722cf00573b8111e98493ab386e0c1b59a1530b7fee4af77f2d9a1c477d", size = 77049, upload-time = "2026-04-22T21:31:00.857Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/da/c7/b273a29446bf093eabb54077d31375f5d9eb53700f53fee69169399cf259/mypy_boto3_s3-1.42.94-py3-none-any.whl", hash = "sha256:d7c2111396d7ae344b241958b7df8ed33d478d746721202715f5c197f9cd0c83", size = 84280, upload-time = "2026-04-22T21:30:58.171Z" },
+]
+
+[[package]]
 name = "nbclient"
 version = "0.10.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1360,7 +1372,7 @@ version = "0.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "boto3" },
-    { name = "boto3-stubs", extra = ["bedrock", "bedrock-runtime"] },
+    { name = "boto3-stubs", extra = ["bedrock", "bedrock-runtime", "s3"] },
     { name = "claude-agent-sdk" },
     { name = "jinja2" },
     { name = "pydantic" },
@@ -1395,7 +1407,7 @@ test = [
 [package.metadata]
 requires-dist = [
     { name = "boto3", specifier = ">=1.42.93,<2.0.0" },
-    { name = "boto3-stubs", extras = ["bedrock", "bedrock-runtime"], specifier = ">=1.42.93,<2.0.0" },
+    { name = "boto3-stubs", extras = ["bedrock", "bedrock-runtime", "s3"], specifier = ">=1.42.93,<2.0.0" },
     { name = "claude-agent-sdk", specifier = ">=0.1.65,<1.0.0" },
     { name = "docfly", marker = "extra == 'doc'", specifier = "==3.0.3" },
     { name = "furo", marker = "extra == 'doc'", specifier = "==2024.8.6" },

@@ -1,0 +1,29 @@
+[meta]
+id = "b-13"
+description = "Hailstorm damages roof shingles, gutters, and siding, no injuries"
+line_of_business = "property"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "web_form"
+narrative = """
+On May 18, 2026, a strong hailstorm hit our neighborhood and damaged the roof \
+of our home at 215 Highland Avenue, Torrington, CT 06790. Hailstones the size \
+of golf balls came down for about fifteen minutes in the late afternoon. \
+Afterward I noticed a number of asphalt shingles were cracked or knocked \
+loose, and the metal gutters are dented all along the front of the house. \
+There are also a couple of dents on the aluminum siding. No one was hurt, and \
+there is no interior water damage that I can see yet. Homeowners policy \
+HO-2025-CT-88410. I've taken photos from a ladder and saved the county \
+weather advisory.
+"""
+
+# Ground truth for correctness validation.
+# "late afternoon" gives no precise time, so time_of_loss is unknown.
+[expected]
+date_of_loss = "2026-05-18"
+time_of_loss = "unknown"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["low", "medium"]

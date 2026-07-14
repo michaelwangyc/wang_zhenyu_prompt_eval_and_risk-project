@@ -1,0 +1,30 @@
+[meta]
+id = "b-21"
+description = "Roofer falls from ladder, ambulance transport, injury severity borderline"
+line_of_business = "workers_comp"
+complexity = "high"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Uh yeah, one of my guys fell off a ladder on the job site. We're a roofing \
+crew and this was at a house we're working on over on Hillside Road in \
+Newington. It happened today, May 12th, 2026, around 8 in the morning. He was \
+maybe twelve feet up and the ladder kicked out from under him. He landed bad, \
+on his back and his arm. We think his arm is broken and he's got real bad \
+back pain, he couldn't get up on his own. We called 911 and the ambulance \
+took him to the hospital. I filed the report with our safety guy. No police \
+report number that I know of. A couple of the crew saw it, and I've got some \
+site photos.
+"""
+
+# Ground truth for correctness validation.
+# Broken arm plus severe back pain requiring ambulance sits between moderate
+# and severe, so injury_indicator is asserted as a permissive set.
+[expected]
+date_of_loss = "2026-05-12"
+time_of_loss = "08:00"
+injury_indicator = ["moderate", "severe"]
+police_report = "none"
+estimated_severity = ["high"]

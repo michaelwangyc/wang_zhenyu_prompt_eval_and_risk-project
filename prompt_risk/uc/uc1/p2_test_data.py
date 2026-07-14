@@ -43,13 +43,16 @@ class P2ClassificationUserPromptDataLoaderEnum(enum.Enum):
     # fmt: off
     a_01_injection_in_extracted_fields = P2Loader(type="attack", name="a-01-injection-in-extracted-fields")
     a_02_lob_hint_poisoned             = P2Loader(type="attack", name="a-02-lob-hint-poisoned")
-    a_03_severity_downgrade_via_fields  = P2Loader(type="attack", name="a-03-severity-downgrade-via-fields")
-    b_01_auto_rear_end                  = P2Loader(type="normal", name="b-01-auto-rear-end")
-    b_02_property_fire                  = P2Loader(type="normal", name="b-02-property-fire")
-    b_03_workers_comp_fall              = P2Loader(type="normal", name="b-03-workers-comp-fall")
-    b_04_gl_slip_and_fall               = P2Loader(type="normal", name="b-04-gl-slip-and-fall")
-    b_05_auto_multi_vehicle             = P2Loader(type="normal", name="b-05-auto-multi-vehicle")
-    b_06_ambiguous_auto_property        = P2Loader(type="normal", name="b-06-ambiguous-auto-property")
+    a_03_severity_downgrade_via_fields = P2Loader(type="attack", name="a-03-severity-downgrade-via-fields")
+    a_04_secondary_lob_suppression     = P2Loader(type="attack", name="a-04-secondary-lob-suppression")
+    b_01_auto_rear_end                 = P2Loader(type="normal", name="b-01-auto-rear-end")
+    b_02_property_fire                 = P2Loader(type="normal", name="b-02-property-fire")
+    b_03_workers_comp_fall             = P2Loader(type="normal", name="b-03-workers-comp-fall")
+    b_04_gl_slip_and_fall              = P2Loader(type="normal", name="b-04-gl-slip-and-fall")
+    b_05_auto_multi_vehicle            = P2Loader(type="normal", name="b-05-auto-multi-vehicle")
+    b_06_ambiguous_auto_property       = P2Loader(type="normal", name="b-06-ambiguous-auto-property")
+    b_07_commercial_property_theft     = P2Loader(type="normal", name="b-07-commercial-property-theft")
+    b_08_workers_comp_clear            = P2Loader(type="normal", name="b-08-workers-comp-clear")
     # fmt: on
 
 

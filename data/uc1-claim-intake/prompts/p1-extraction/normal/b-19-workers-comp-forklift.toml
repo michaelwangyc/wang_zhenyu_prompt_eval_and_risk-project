@@ -1,0 +1,29 @@
+[meta]
+id = "b-19"
+description = "Warehouse associate struck by forklift, severe injuries, OSHA notified"
+line_of_business = "workers_comp"
+complexity = "high"
+date_created = 2026-07-14
+
+[input]
+source = "email"
+narrative = """
+I am filing a workers' compensation claim on behalf of our employee. On June \
+4, 2026 at approximately 10:30 AM, a warehouse associate at our distribution \
+center, 500 Industrial Park Road, East Hartford, CT, was struck by a forklift \
+while restocking a pallet rack. The forklift operator did not see him as he \
+stepped into the aisle. The employee sustained a fractured pelvis and a \
+crushed right foot and was transported by ambulance to Hartford Hospital, \
+where he underwent surgery. He will be out of work for an extended period. We \
+completed an internal incident report and OSHA was notified. There is no \
+police report. Surveillance footage from the warehouse cameras is available, \
+and several coworkers witnessed the accident.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-06-04"
+time_of_loss = "10:30"
+injury_indicator = "severe"
+police_report = "none"
+estimated_severity = ["high"]

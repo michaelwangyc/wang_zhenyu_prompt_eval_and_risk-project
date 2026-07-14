@@ -1,0 +1,28 @@
+[meta]
+id = "b-07"
+description = "Clear commercial property claim — overnight break-in and theft of equipment"
+line_of_business = "property"
+complexity = "low"
+date_created = 2026-04-24
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-02-27",
+  "time_of_loss": "unknown",
+  "location": "Warehouse unit 4, 210 Industrial Park Rd, Waterbury, CT",
+  "line_of_business_hint": "property",
+  "parties_involved": ["insured"],
+  "damage_description": "Overnight break-in through a rear loading door; forklift and hand tools stolen, door lock damaged",
+  "injury_indicator": "none",
+  "police_report": "WPD-2026-02271",
+  "evidence_available": ["photos", "police_report", "inventory_list"],
+  "estimated_severity": "medium"
+}
+"""
+
+[expected]
+line_of_business = "property"
+confidence = ["high", "medium"]
+secondary_lob = "none"
+escalate = false

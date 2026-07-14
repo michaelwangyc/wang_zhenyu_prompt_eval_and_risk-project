@@ -1,0 +1,28 @@
+[meta]
+id = "b-09"
+description = "Hail damage to parked vehicle overnight, exact time unknown"
+line_of_business = "auto"
+complexity = "low"
+date_created = 2026-07-14
+
+[input]
+source = "web_form"
+narrative = """
+A hailstorm passed through my area on the evening of May 18, 2026 and my \
+vehicle was parked outside in the driveway at 42 Cedar Street, Waterbury, CT. \
+The next morning I found dozens of dents across the hood, roof, and trunk of \
+my 2020 Nissan Altima. The windshield also has a small chip. I'm not exactly \
+sure what time the worst of the storm hit since I was asleep. No one was \
+injured. I did not file a police report since it was weather-related. I have \
+photographs of the dents and a screenshot of the local weather alert from \
+that night.
+"""
+
+# Ground truth for correctness validation.
+# No specific time given (asleep during storm), so time_of_loss is unknown.
+[expected]
+date_of_loss = "2026-05-18"
+time_of_loss = "unknown"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["low", "medium"]

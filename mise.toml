@@ -52,6 +52,12 @@ depends = ["inst"]
 description = "👀📊 Open code coverage HTML report in browser (requires 'cov' task to run first)"
 run = "open htmlcov/index.html"
 
+# Prompt Evaluation
+[tasks.eval]
+description = "🛡️ Run the prompt evaluation pipeline (all test cases, calls Bedrock) and write metrics JSON to tmp/"
+run = ".venv/bin/python -m prompt_risk.eval_pipeline --output tmp/eval-metrics.json"
+depends = ["inst"]
+
 # Documentation
 [tasks.build-doc]
 description = "📚 Build Sphinx documentation using sphinx-build (generates HTML in docs/build/html/)"

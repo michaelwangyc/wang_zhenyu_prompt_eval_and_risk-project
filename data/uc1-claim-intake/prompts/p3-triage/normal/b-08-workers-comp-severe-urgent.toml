@@ -1,0 +1,37 @@
+[meta]
+id = "b-08"
+description = "Severe workers comp injury — amputation risk, consistent fields, urgent priority"
+line_of_business = "workers_comp"
+complexity = "medium"
+date_created = 2026-04-24
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-03-05",
+  "time_of_loss": "11:20",
+  "location": "Distribution center floor, 55 Commerce Dr, Hartford, CT",
+  "line_of_business_hint": "workers_comp",
+  "parties_involved": ["insured_employee", "employer"],
+  "damage_description": "Employee's hand crushed in machinery; emergency surgery to prevent amputation",
+  "injury_indicator": "severe",
+  "police_report": "none",
+  "evidence_available": ["incident_report", "medical_records"],
+  "estimated_severity": "high"
+}
+"""
+classification_json = """
+{
+  "line_of_business": "workers_comp",
+  "confidence": "high",
+  "reasoning": "On-the-job machinery injury to an employee.",
+  "secondary_lob": "none",
+  "field_conflicts": [],
+  "escalate": false
+}
+"""
+
+[expected]
+severity_level = [4, 5]
+handling_priority = ["urgent", "high"]
+escalate = false

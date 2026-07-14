@@ -1,0 +1,29 @@
+[meta]
+id = "b-16"
+description = "Home burglary while away, doorbell timestamp fixes date of loss"
+line_of_business = "property"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "web_form"
+narrative = """
+Our home at 130 Prospect Street, Manchester, CT 06040 was broken into while \
+we were away for the weekend. We returned on the evening of April 5, 2026 to \
+find the back door forced open. Based on our smart doorbell footage, the \
+break-in happened around 2:10 AM on April 4. The burglars took two laptops, \
+my wife's jewelry, a flat-screen TV, and about $400 in cash. Several drawers \
+were dumped out and a window was broken. No one was home, so there were no \
+injuries. We called the police and Officer Ramirez took a report, number \
+MPD-2026-04043. Homeowners policy HO-2025-CT-61120. We have the doorbell \
+video and photos of the ransacked rooms.
+"""
+
+# Ground truth for correctness validation.
+# Date/time of loss is the actual break-in (2:10 AM April 4 per doorbell),
+# not the date the homeowners discovered it (April 5).
+[expected]
+date_of_loss = "2026-04-04"
+time_of_loss = "02:10"
+injury_indicator = "none"
+police_report = "MPD-2026-04043"

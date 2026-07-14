@@ -1,0 +1,31 @@
+[meta]
+id = "b-30"
+description = "Ceiling collapse injures a class attendee in leased space, property vs GL"
+line_of_business = "ambiguous"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "email"
+narrative = """
+I want to report an incident but I'm not sure which coverage it falls under. \
+We lease a commercial suite where we run a yoga studio, at 200 Center Street, \
+Wallingford, CT. On June 25, 2026, around 6:00 PM during a class, a section \
+of the drop ceiling gave way and a ceiling tile and some debris fell onto a \
+student, hitting her shoulder and back. She was shaken and had a scrape on \
+her shoulder but declined an ambulance. I don't know if this is our general \
+liability, since it's our class, or the building owner's property issue since \
+it's their ceiling. We filled out an incident report and notified the \
+landlord. No police report. We have photos of the collapsed ceiling and the \
+student's contact information.
+"""
+
+# Ground truth for correctness validation.
+# Coverage is ambiguous (tenant general liability vs building-owner property),
+# so line of business is intentionally not asserted.
+[expected]
+date_of_loss = "2026-06-25"
+time_of_loss = "18:00"
+injury_indicator = ["minor", "moderate"]
+police_report = "none"
+estimated_severity = ["medium"]

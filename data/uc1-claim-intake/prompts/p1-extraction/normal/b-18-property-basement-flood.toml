@@ -1,0 +1,27 @@
+[meta]
+id = "b-18"
+description = "Sump pump failure floods finished basement after heavy rain"
+line_of_business = "property"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Yeah hi, um, my basement flooded. We had heavy rain for like two days \
+straight and the sump pump quit on us. This was, let me think, February 22nd, \
+2026. I went downstairs in the afternoon, maybe around 3 o'clock, and there \
+was probably eight inches of water down there. We lost the water heater, the \
+washer and dryer, a bunch of storage boxes, and the carpet in the finished \
+part is soaked. No one was hurt. I didn't call the police, it's not that kind \
+of thing. My homeowners policy is HO-2024-CT-40077. I took video of the water \
+level before we started pumping it out.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-02-22"
+time_of_loss = "15:00"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["low", "medium"]

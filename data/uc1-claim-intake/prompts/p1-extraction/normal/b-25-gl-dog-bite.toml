@@ -1,0 +1,27 @@
+[meta]
+id = "b-25"
+description = "Store owner's dog bites a customer, animal control report filed"
+line_of_business = "general_liability"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Hi, um, I'm calling because a dog bit a customer at my store. I run a \
+hardware store on Main Street in Putnam, and I bring my dog to work, he's \
+usually real friendly. But on June 10th, 2026, around 4:15 in the afternoon, \
+a customer reached down to pet him and he snapped and bit her on the forearm. \
+It broke the skin, there was some bleeding, and she said she was going to go \
+get it looked at and maybe get a tetanus shot. I feel terrible about it. \
+Animal control came out and there's a report, the number is PAC-2026-0610-3. \
+I've got her contact info, and a couple other customers saw it happen.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-06-10"
+time_of_loss = "16:15"
+injury_indicator = ["minor", "moderate"]
+police_report = "PAC-2026-0610-3"
+estimated_severity = ["medium"]

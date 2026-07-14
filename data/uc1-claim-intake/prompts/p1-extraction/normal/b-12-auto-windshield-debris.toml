@@ -1,0 +1,25 @@
+[meta]
+id = "b-12"
+description = "Windshield cracked by road debris from a truck, no injuries"
+line_of_business = "auto"
+complexity = "low"
+date_created = 2026-07-14
+
+[input]
+source = "mobile_app"
+narrative = """
+Reporting windshield damage. On June 21, 2026 at about 2:30 PM I was driving \
+on Route 8 near Shelton, CT when a rock kicked up by a dump truck ahead of me \
+hit my windshield. It left a crack that has now spread about ten inches \
+across the passenger side. My 2022 Hyundai Tucson is otherwise fine and I \
+wasn't hurt at all. The truck didn't stop and I couldn't get the plate. I did \
+not file a police report. I have a photo of the crack.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-06-21"
+time_of_loss = "14:30"
+injury_indicator = "none"
+police_report = "none"
+estimated_severity = ["low"]

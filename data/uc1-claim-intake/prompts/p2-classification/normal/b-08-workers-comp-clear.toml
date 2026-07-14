@@ -1,0 +1,28 @@
+[meta]
+id = "b-08"
+description = "Clear workers comp claim — warehouse worker injured operating equipment on the job"
+line_of_business = "workers_comp"
+complexity = "low"
+date_created = 2026-04-24
+
+[input]
+extraction_json = """
+{
+  "date_of_loss": "2026-03-05",
+  "time_of_loss": "11:20",
+  "location": "Distribution center floor, 55 Commerce Dr, Hartford, CT",
+  "line_of_business_hint": "workers_comp",
+  "parties_involved": ["insured_employee", "employer"],
+  "damage_description": "Employee's hand crushed between a pallet and shelving while operating a pallet jack during a shift; taken to hospital",
+  "injury_indicator": "moderate",
+  "police_report": "none",
+  "evidence_available": ["incident_report", "medical_records", "witness_statement"],
+  "estimated_severity": "medium"
+}
+"""
+
+[expected]
+line_of_business = "workers_comp"
+confidence = "high"
+secondary_lob = "none"
+escalate = false

@@ -1,0 +1,28 @@
+[meta]
+id = "b-15"
+description = "Grease fire spreads to cabinets, minor burns to homeowner"
+line_of_business = "property"
+complexity = "high"
+date_created = 2026-07-14
+
+[input]
+source = "email"
+narrative = """
+I am reporting a fire that occurred at my residence, 9 Elmwood Drive, \
+Bristol, CT 06010, on March 27, 2026 at around 7:15 PM. A pan of oil on the \
+stove caught fire while I was preparing dinner. The flames spread to the \
+cabinets and range hood before the fire department extinguished it. The \
+kitchen has significant fire and smoke damage, and there is smoke residue \
+throughout the first floor. I suffered minor burns on my right hand and \
+forearm that I treated at home. The fire department responded and there is an \
+incident report, number BFD-2026-0327-14. Homeowners policy HO-2025-CT-70233. \
+I have photographs of the damage and the fire marshal's card.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-03-27"
+time_of_loss = "19:15"
+injury_indicator = "minor"
+police_report = "BFD-2026-0327-14"
+estimated_severity = ["medium", "high"]

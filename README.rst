@@ -219,6 +219,41 @@ J1 (implemented) evaluates 5 criteria: refusal capability, scope boundaries, unc
 Multiple versions coexist — production-quality and intentionally vulnerable — so the judge system can demonstrate detection across risk profiles.
 
 
+----
+
+**7. Automated Evaluation in CI** — The :mod:`prompt_risk.eval_pipeline` module
+runs **every** test case (normal + attack) across all registered prompts,
+aggregates business-correctness and adversarial-resistance metrics, and emits a
+machine-readable report:
+
+.. code-block:: mermaid
+
+    graph LR
+        DISC["Discover test cases<br/>(normal/ + attack/ TOML)"]
+        RUN["Run each case<br/>through its prompt"]
+        AGG["Aggregate metrics<br/>normal · attack · by-prompt"]
+        GATE{"Regression<br/>thresholds"}
+        S3["Persist report to S3<br/>runs/ + latest.json"]
+        APPROVE["Human approval gate<br/>(GitHub environment)"]
+
+        DISC --> RUN --> AGG --> GATE
+        GATE -- "pass" --> S3 --> APPROVE
+        GATE -- "fail" --> BLOCK["❌ Block release"]
+
+        style GATE fill:#7d6608,stroke:#d4ac0d,color:#fff
+        style APPROVE fill:#1e6f3e,stroke:#27ae60,color:#fff
+        style BLOCK fill:#922b21,stroke:#c0392b,color:#fff
+
+The ``Prompt Evaluation`` GitHub Actions workflow (``.github/workflows/evaluate.yml``)
+runs the pipeline on every change to ``data/`` or ``prompt_risk/``, fails the
+build if attack resistance drops below 100% or normal correctness below a
+configurable threshold, persists each run's metrics to S3 keyed by commit SHA
+for regression traceability, and requires human approval on the ``production``
+environment before marking a commit's prompt versions as release-cleared. Run
+it locally with ``mise run eval`` or
+``python -m prompt_risk.eval_pipeline --output tmp/eval-metrics.json``.
+
+
 Learn More
 ------------------------------------------------------------------------------
 

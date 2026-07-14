@@ -1,0 +1,27 @@
+[meta]
+id = "b-20"
+description = "Office slip on freshly mopped floor, minor bruising, finished shift"
+line_of_business = "workers_comp"
+complexity = "low"
+date_created = 2026-07-14
+
+[input]
+source = "web_form"
+narrative = """
+Reporting a workplace injury. On February 3, 2026 at about 11:45 AM, I \
+slipped on a freshly mopped floor near the break room at our office, 22 \
+Corporate Drive, Trumbull, CT. There was no wet-floor sign posted. I landed \
+on my hip and left elbow. I have some bruising and soreness but nothing \
+broken; I saw the company nurse and declined to go to a clinic. I was able to \
+finish my shift. My supervisor filled out an incident report. No police were \
+involved. There is a security camera in that hallway that would have captured \
+the fall, and a coworker saw it happen.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-02-03"
+time_of_loss = "11:45"
+injury_indicator = "minor"
+police_report = "none"
+estimated_severity = ["low"]

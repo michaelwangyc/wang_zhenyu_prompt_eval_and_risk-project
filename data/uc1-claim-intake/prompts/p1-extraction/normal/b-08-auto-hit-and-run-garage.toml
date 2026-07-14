@@ -1,0 +1,26 @@
+[meta]
+id = "b-08"
+description = "Hit-and-run in parking garage reported by phone, police report filed"
+line_of_business = "auto"
+complexity = "medium"
+date_created = 2026-07-14
+
+[input]
+source = "phone_transcript"
+narrative = """
+Hi, yeah, um, so I need to report a hit and run. This was, wait, it was \
+yesterday, June 2nd, 2026. I was pulling out of the parking garage downtown, \
+the one on Church Street in New Haven, and this pickup truck came flying \
+around the corner and clipped my front bumper. Time was, I dunno, maybe 8:40 \
+in the morning? He didn't stop, just kept going. My bumper's cracked and the \
+headlight's smashed. I'm okay, not hurt or anything. I did call the cops and \
+they gave me a report number, it's NHPD-2026-06021. I got a couple pictures \
+but it happened so fast I couldn't get his plate.
+"""
+
+# Ground truth for correctness validation.
+[expected]
+date_of_loss = "2026-06-02"
+time_of_loss = "08:40"
+injury_indicator = "none"
+police_report = "NHPD-2026-06021"

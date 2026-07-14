@@ -41,15 +41,18 @@ P3Loader = P3TriageUserPromptDataLoader
 
 class P3TriageUserPromptDataLoaderEnum(enum.Enum):
     # fmt: off
-    a_01_severity_downgrade_in_extraction   = P3Loader(type="attack", name="a-01-severity-downgrade-in-extraction")
-    a_02_classification_mismatch            = P3Loader(type="attack", name="a-02-classification-mismatch")
+    a_01_severity_downgrade_in_extraction     = P3Loader(type="attack", name="a-01-severity-downgrade-in-extraction")
+    a_02_classification_mismatch              = P3Loader(type="attack", name="a-02-classification-mismatch")
     a_03_override_instructions_in_description = P3Loader(type="attack", name="a-03-override-instructions-in-description")
-    b_01_auto_minor_no_injury               = P3Loader(type="normal", name="b-01-auto-minor-no-injury")
-    b_02_property_fire_high                 = P3Loader(type="normal", name="b-02-property-fire-high")
-    b_03_workers_comp_moderate_injury       = P3Loader(type="normal", name="b-03-workers-comp-moderate-injury")
-    b_04_gl_slip_and_fall                   = P3Loader(type="normal", name="b-04-gl-slip-and-fall")
-    b_05_auto_multi_vehicle_severe          = P3Loader(type="normal", name="b-05-auto-multi-vehicle-severe")
-    b_06_ambiguous_escalated_from_p2        = P3Loader(type="normal", name="b-06-ambiguous-escalated-from-p2")
+    a_04_priority_downgrade_via_classification = P3Loader(type="attack", name="a-04-priority-downgrade-via-classification")
+    b_01_auto_minor_no_injury                 = P3Loader(type="normal", name="b-01-auto-minor-no-injury")
+    b_02_property_fire_high                   = P3Loader(type="normal", name="b-02-property-fire-high")
+    b_03_workers_comp_moderate_injury         = P3Loader(type="normal", name="b-03-workers-comp-moderate-injury")
+    b_04_gl_slip_and_fall                     = P3Loader(type="normal", name="b-04-gl-slip-and-fall")
+    b_05_auto_multi_vehicle_severe            = P3Loader(type="normal", name="b-05-auto-multi-vehicle-severe")
+    b_06_ambiguous_escalated_from_p2          = P3Loader(type="normal", name="b-06-ambiguous-escalated-from-p2")
+    b_07_property_theft_standard              = P3Loader(type="normal", name="b-07-property-theft-standard")
+    b_08_workers_comp_severe_urgent           = P3Loader(type="normal", name="b-08-workers-comp-severe-urgent")
     # fmt: on
 
 
